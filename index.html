@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+      <head>
+        <meta charset="utf-8">
+        <title> slope stability prediction </title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		
+		<style>
+			.content {
+			  max-width: 500px;
+			  margin: auto;
+
+
+			}
+			
+			
+			.bg-img{
+		width: 100%;
+		height: 100vh;
+		background-image:linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.7)),url('D:\pic2.jpg');
+		background-size: cover;
+		background-position: center;
+		
+			}
+			h1{
+			color:#fff;
+			}
+			</style>
+    </head>
+	
+<body>
+<div class="bg-img">
+<div class="content">
+<div clear="left">   
+	<body> <font color="yellow">
+
+  <br>
+  <br>
+        <h1> <b> Slope Stability Prediction </b> </h1>
+        
+		
+        <form action="{{url_for('predict')}}" method="post">
+		<br>
+		<br>
+		        <b> Height: </b> &nbsp
+            <input type="number" name="height" placeholder="H" required="required">
+		<br><br>
+            <b> Regression Coefficient: </b> &nbsp
+            <input type="number" name="regressioncoefficient" placeholder="β" required="required">
+		<br><br>
+            <b> Unit Weight: </b> &nbsp
+            <input type="number" name="unitweight" placeholder="γ" required="required">
+			
+		<br>
+		<br>
+            <b> Cohesion: </b> &nbsp
+            <input type="number" name="cohesion" placeholder="C" required="required">
+			
+		<br><br>
+            <b> Angle of friction: </b> &nbsp
+            <input type="number" name="angleoffriction" placeholder="Φ" required="required">
+		<br>
+		<br>
+		        <b> Pore-Water ration: </b> &nbsp
+            <input type="number" name="porewaterratio" placeholder="ru" required="required">
+    <br>
+		<br>
+            <b> Location: </b> &nbsp
+            <input type="text" name="location" placeholder="Location" required="required">
+			
+		<br><br>
+
+		<br>
+		<br>
+		
+		<center> 
+            <button  type="submit" class="btn btn-primary btn-block btn-large"> <b> PREDICT </b> </button> 
+	
+        </form>
+        <br>
+        <br>
+        </center>
+      </form>
+            {{ prediction_text }}   
+
+
+</div>
+</div>
+</html>
